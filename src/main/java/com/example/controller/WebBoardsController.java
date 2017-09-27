@@ -18,6 +18,7 @@ import com.example.domain.WebBoard;
 import com.example.persistence.WebBoardRepository;
 import com.example.vo.PageMaker;
 import com.example.vo.PageVO;
+import com.querydsl.core.types.Predicate;
 
 import lombok.extern.java.Log;
 
@@ -25,17 +26,18 @@ import lombok.extern.java.Log;
 @RequestMapping("/boards/")
 @Log
 public class WebBoardsController {
-
 	
 	@Autowired
 	private WebBoardRepository repo;
 	
 	@GetMapping("/register")
-	public void registerGET(@ModelAttribute("vo")WebBoard vo ){
+	public String registerGET(@ModelAttribute("vo")WebBoard vo ){
 		log.info("register get");
 		vo.setTitle("샘플 게시물 제목입니다....");
 		vo.setContent("내용을 처리해 봅니다 " );
 		vo.setWriter("user00");
+		
+		return "thymeleaf/boards/register";
 	}
 	
 	@PostMapping("/register")
@@ -61,11 +63,13 @@ public class WebBoardsController {
 	}
 	
 	@GetMapping("/modify")
-	public void modify(Long bno, @ModelAttribute("pageVO") PageVO vo, Model model){
+	public String modify(Long bno, @ModelAttribute("pageVO") PageVO vo, Model model){
 		
 		log.info("MODIFY BNO: "+ bno);
 		
 		repo.findById(bno).ifPresent(board -> model.addAttribute("vo", board));
+		
+		return "thymeleaf/boards/modify";
 	}
 	
 	@PostMapping("/modify")
@@ -116,13 +120,12 @@ public class WebBoardsController {
 	@GetMapping("/list")
 	public String list(@ModelAttribute("pageVO") PageVO vo, Model model){
 		
-		Pageable page = vo.makePageable(0, "bno");
+		Pageable pageable = vo.makePageable(0, "bno");
+		Predicate predicate = repo.makePredicate(vo.getType(), vo.getKeyword());
 		
-		Page<WebBoard> result = repo.findAll(
-				repo.makePredicate(vo.getType(), 
-						           vo.getKeyword()), page);
+		Page<WebBoard> result = repo.findAll(predicate, pageable);
 		
-		log.info(""+ page);
+		log.info(""+ pageable);
 		log.info(""+result);
 		
 		log.info("TOTAL PAGE NUMBER: " + result.getTotalPages());
