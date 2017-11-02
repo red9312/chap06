@@ -1,0 +1,84 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/boards}">
+
+<div layout:fragment="content">
+
+	<div class="panel-heading">View Page</div>
+	<div class="panel-body">
+
+		<div class="form-group">
+			<label>사원 번호</label> <input class="form-control" name="empno"
+				th:value="${vo.empno}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>사원 이름</label> <input class="form-control" name="ename"
+				th:value="${vo.ename}" readonly="readonly" />
+			<p class="help-block">ename text here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>성별</label>
+			<textarea class="form-control" name='gender' th:text="${vo.gender.name() == 'M' ? '남자' : '여자'}" readonly="readonly">
+			</textarea>
+		</div>
+		
+		<div class="form-group">
+			<label>직급</label> <input class="form-control" name="job"
+				th:value="${vo.job}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>매니저</label> <input class="form-control" name="mgr"
+				th:value="${vo.mgr == null ? '없음' : vo.mgr.ename}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>입사일</label> <input class="form-control" name="hiredate"
+				th:value="${vo.hiredate}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>월급</label> <input class="form-control" name="sal"
+				th:value="${vo.sal}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>상여급</label> <input class="form-control" name="comm"
+				th:value="${vo.comm}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>부서 번호</label> <input class="form-control" name="dept"
+				th:value="${vo.dept.deptno}" readonly="readonly" />
+		</div>		
+		
+		<div class="pull-right">
+			<a th:href="@{ modify(page=${pageVO.page}, 
+			                size=${pageVO.size}, 
+			                type=${pageVO.type}, 
+			                keyword=${pageVO.keyword},
+			                empno=${vo.empno}
+			             )}" class="btn btn-default">Modify/Delete</a> 
+			             
+			<a th:href="@{ list(page=${pageVO.page}, 
+			                size=${pageVO.size}, 
+			                type=${pageVO.type}, 
+			                keyword=${pageVO.keyword},
+			                empno=${vo.empno}
+			             )}" class="btn btn-primary">Go List</a> 
+		</div>
+
+	</div>
+
+</div>
+<!--  end fragment -->
+
+<th:block layout:fragment="script">
+
+	<script th:inline="javascript">
+		
+	</script>
+
+</th:block>

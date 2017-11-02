@@ -19,6 +19,8 @@ select * from tbl_emp;
 insert into tbl_dept
 select * from dept;
 
+truncate table tbl_emp;
+
 insert into tbl_emp
 (comm, deptno, empno, ename, gender, hiredate, job, mgr, sal)
 select comm, deptno, empno, ename, gender, hiredate, job, mgr, sal from emp;
@@ -51,3 +53,15 @@ select * from tbl_webboard limit 0, 10;
 select count(*) from tbl_webboard;
 
 select * from id_gen;
+
+truncate tbl_city;
+
+insert into tbl_city
+(id, district, name, population, countrycode)
+select id, district, name, population, countrycode from city;
+
+insert into tbl_country
+(code,	gnpold, localname, governmentform,	headofstate, capital, code2, name, continent, region,
+ surfacearea, indepyear, population, lifeexpectancy, gnp)
+select code, gnpold, localname, governmentform, headofstate, capital, code2, name, continent, region,
+ surfacearea, indepyear, population, lifeexpectancy, gnp from country;

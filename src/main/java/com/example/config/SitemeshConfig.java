@@ -29,11 +29,12 @@ public class SitemeshConfig {
 			@Override
 			protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
 				builder.addDecoratorPath("/board/*", "/WEB-INF/decorators/board.jsp");
-				builder.addDecoratorPath("/dpet/*", "/WEB-INF/decorators/dept.jsp");
+				builder.addDecoratorPath("/dept/*", "/WEB-INF/decorators/dept.jsp");
 				builder.addDecoratorPath("/emp/*", "/WEB-INF/decorators/emp.jsp");
 				builder.addDecoratorPath("/city/*", "/WEB-INF/decorators/city.jsp");
 				builder.addDecoratorPath("/country/*", "/WEB-INF/decorators/country.jsp");
 				builder.addDecoratorPath("/ontime/*", "/WEB-INF/decorators/ontime.jsp");
+				builder.addDecoratorPath("/bootstrap/*", "/WEB-INF/decorators/bootstrap.jsp");
 				
 			}
 		});
@@ -43,7 +44,8 @@ public class SitemeshConfig {
 												 "/emp/*",
 												 "/city/*",
 												 "/country/*",
-												 "/ontime/*"));		
+												 "/ontime/*",
+												 "/bootstrap/*"));		
 		return filter;
 	}
 	
@@ -80,7 +82,7 @@ public class SitemeshConfig {
 				System.out.println("#########################");
 			}
 		});
-		filter.setUrlPatterns(Arrays.asList("/dept/*", "/emp/*"));
+		filter.setUrlPatterns(Arrays.asList("/emp/*"));
 		
 		return filter;
 	}

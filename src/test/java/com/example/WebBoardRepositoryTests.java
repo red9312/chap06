@@ -31,7 +31,7 @@ public class WebBoardRepositoryTests {
 	@Test
 	public void insertBoardDummies() {
 
-		IntStream.range(0, 500).forEach(i -> {
+		IntStream.range(1, 600).forEach(i -> {
 
 			WebBoard board = new WebBoard();
 

@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
@@ -21,19 +22,21 @@ import lombok.ToString;
  * 4. @ManyToMany
  */
 @Entity
-@Table(name="tbl_dept")
+@Table(name="dept")
 @Data
 @ToString(exclude={"emps"})
 public class Dept {
 
 	@Id
 	@TableGenerator(name="idGen", table="id_gen", pkColumnName="seq_name", valueColumnName="nextval",
-						allocationSize=10, initialValue=100)
+						allocationSize=1, initialValue=0)
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="idGen")
 	Integer deptno;
 	String dname;
 	String loc;
 	
-	@OneToMany(mappedBy="dept", fetch=FetchType.LAZY)
+	@OneToMany(fetch=FetchType.LAZY)
+	@JoinColumn
 	List<Emp> emps;	
+	
 }

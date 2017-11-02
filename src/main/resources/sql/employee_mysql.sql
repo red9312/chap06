@@ -58,6 +58,7 @@ insert into emp values(1011, '조향기', 'F', '사원', 1007, '2007-03-01', 280
 insert into emp values(1012, '강혜정', 'F', '사원', 1006, '2007-08-09', 300, null, 20);
 insert into emp values(1013, '박중훈', 'M', '부장', 1003, '2002-10-09', 560, null, 20);
 insert into emp values(1014, '조인성', 'M', '사원', 1006, '2007-11-09', 250, null, 10);
+insert into emp values(1015, '아니오', 'F', '대리', 1006, '2007-11-10', 350, null, 10, null);
 
 -- 급여 테이블에 샘플 데이터 추가하기
 insert into salgrade values (1, 100, 199);
@@ -67,3 +68,18 @@ insert into salgrade values (4, 600, 799);
 insert into salgrade values (5, 800,9999);
 commit;
 
+-- tbl_emp 테이블에 샘플 데이터 추가하기
+insert into tbl_emp values(1001, '김사랑', 'F', '사원', 1013, '2007-03-01', 300, 0, 20);
+insert into tbl_emp values(1002, '한예슬', 'F', '대리', 1005, '2007-04-02', 250,   80, 30);
+insert into tbl_emp values(1003, '오지호', 'M', '과장', 1005, '2005-02-10', 500,  100, 30);
+insert into tbl_emp values(1004, '이병헌', 'M', '부장', 1008, '2003-09-02', 600, null, 20);
+insert into tbl_emp values(1005, '신동협', 'M', '과장', 1005, '2005-04-07', 450,  200, 30);
+insert into tbl_emp values(1006, '장동건', 'M', '부장', 1008, '2003-10-09', 480, null, 30);
+insert into tbl_emp values(1007, '이문세', 'M', '부장', 1008, '2004-01-08', 520, null, 10);
+insert into tbl_emp values(1008, '감우성', 'M', '차장', 1003, '2004-03-08', 500,    0, 30);
+insert into tbl_emp values(1009, '안성기', 'M', '사장', null,'1996-10-04',1000, null, 20);
+insert into tbl_emp values(1010, '이병헌', 'M', '과장', 1003, '2005-04-07', 500, null, 10);
+insert into tbl_emp values(1011, '조향기', 'F', '사원', 1007, '2007-03-01', 280, null, 30);
+insert into tbl_emp values(1012, '강혜정', 'F', '사원', 1006, '2007-08-09', 300, null, 20);
+insert into tbl_emp values(1013, '박중훈', 'M', '부장', 1003, '2002-10-09', 560, null, 20);
+insert into tbl_emp values(1014, '조인성', 'M', '사원', 1006, '2007-11-09', 250, null, 10);

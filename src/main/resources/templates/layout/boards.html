@@ -1,6 +1,6 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 <meta charset="utf-8">
@@ -19,24 +19,46 @@
 <link rel="stylesheet" href="../thymeleaf/css/bootstrap.css" th:remove="all">
 <link rel="stylesheet" href="../thymeleaf/css/animate.css" th:remove="all">
 </head>
-<body>
+<body class="container">
 
-	<div class="page-header animated fadeInRight">
-		<h1>
-			###Boot06 Project <small>for Spring MVC + JPA</small>
-		</h1>
+   <div class="page-header animated fadeInRight">
+      <h1>
+         ###Web Project <small>for Spring MVC + JPA (thymeleaf)</small>
+      </h1>
+   </div>
+   
+   	<div class="panel-body pull-right">
+		<h3>
+			<a class="label label-default " href="/boards/list">Thymeleaf</a>
+			<a class="label label-default " href="/board/list">jsp</a>
+		</h3>
 	</div>
+   
+   
+   <div>
+   		 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+         <thead>
+            <tr>
+               <th><a href="http://localhost:8080/boards/list">Boards</a></th>
+               <th><a href="http://localhost:8080/citys/list">Citys</a></th>
+               <th><a href="http://localhost:8080/countrys/list">Countrys</a></th>
+               <th><a href="http://localhost:8080/depts/list">Depts</a></th>
+               <th><a href="http://localhost:8080/emps/list">Emps</a></th>
+            </tr>
+         </thead>
+      </table>
+   </div>
+   <div class="panel panel-default" layout:fragment="content">
+      <div class="panel-body">Web Board List Page</div>
+   </div>
 
-	<div class="panel panel-default" layout:fragment="content">
-		<div class="panel-body">Web Board List Page</div>
-	</div>
+   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
-	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+   <!-- custom javascript  -->
+   <th:block layout:fragment="script">
+   
+   </th:block>
 
-	<!-- custom javascript  -->
-	<th:block layout:fragment="script">
-	
-	</th:block>
-	
+	<footer><center><p>&copy; 2017.CBH.Table<p></footer>
 </body>
 </html>
